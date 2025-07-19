@@ -1,23 +1,19 @@
 package main
 
-import(
-	"html/template"
-	"net/http"
+import (
+	"embed"
 	"fmt"
+	"net/http"
 )
 
-func home(w http.ResponseWriter, r *http.Request){
-	tmpl := template.Must(template.ParseFiles("ui/index.html"));
-	tmpl.Execute(w, nil);
-}
+//go:embed internal/*
+var content embed.FS
 
-func main(){
-	fs := http.FileServer(http.Dir("./internal"));
-	http.Handle("/internal/", http.StripPrefix("/internal/", fs));
+func main() {
+	http.HandleFunc("/", home)
+	http.HandleFunc("/download/", download)
 
-	http.HandleFunc("/", home);
-	
 	fmt.Println("Starting server on port 8080...")
-	http.ListenAndServe(":8080", nil);
+	http.ListenAndServe(":8080", nil)
 
 }
