@@ -52,3 +52,60 @@ nav ul li a::after{
 nav ul li a:hover::after, nav ul li a:active::after{
     width: 100%;
 }
+
+ .content{
+   padding:10px 5%;
+
+ }
+ .image{
+    display : flex;
+    justify-content: center;
+    
+
+ }
+.image img{
+    margin-top: 40px;
+    width: 70%;
+    height: 40vh;
+    border-radius: 15px;
+    transition:transform 0.5s;
+}
+.image:hover img{
+   
+    z-index: 3;
+   box-shadow: 3px 3px 10px #0097e6;
+   transform: translateY(8px);
+}
+
+.service{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, .8fr));
+    grid-gap: 50px;
+    margin-top: 40px;
+    padding:10px 10%;
+}
+.sec{
+    border-radius: 10px;
+    box-shadow: 3px 2px 5px #0097e6;
+    padding : 20px;
+    align-items: center;
+    transition: transform 0.5s;
+}
+.sec a{
+    text-decoration: none;
+    color: #0097e6;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+   padding: 15px;
+   
+}
+.sec:hover{
+   
+    background-color: #385265;
+    transform: translateY(-5px);
+    
+}
+
+
